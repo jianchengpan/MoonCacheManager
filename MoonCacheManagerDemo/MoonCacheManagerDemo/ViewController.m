@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "MoonCacheManager.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [MoonCacheManager queryWithSqlMaker:^(MoonSqlQueryMaker *maker) {
+        
+    } andError:nil];
 }
 
 

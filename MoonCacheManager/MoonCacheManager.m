@@ -9,6 +9,7 @@
 #import "MoonCacheManager.h"
 #import "MoonDiskCache.h"
 
+
 @interface MoonCacheManager ()
 
 @property (nonatomic, strong) MoonDiskCache *diskCache;
@@ -34,6 +35,26 @@
     });
     
     return singleManager;
+}
+
+#pragma mark - query
++(NSArray *)queryWithSqlMaker:(void(^)(MoonSqlQueryMaker *maker))maker andError:(NSError **)error{
+    MoonSqlQueryMaker *queryMaker = [MoonSqlQueryMaker new];
+    maker(queryMaker);
+    
+    return nil;
+}
+
+#pragma mark - save
++(void)saveWithSqlMaker:(void (^)(MoonSqlSaveMaker *))maker andError:(NSError *__autoreleasing *)error{
+    MoonSqlSaveMaker *saveMaker = [MoonSqlSaveMaker new];
+    maker(saveMaker);
+}
+
+#pragma mark - delete
++(void)deleteWithSqlMaker:(void (^)(MoonSqlDeleteMaker *))maker andError:(NSError *__autoreleasing *)error{
+    MoonSqlDeleteMaker *deleteMaker = [MoonSqlDeleteMaker new];
+    maker(deleteMaker);
 }
 
 @end
