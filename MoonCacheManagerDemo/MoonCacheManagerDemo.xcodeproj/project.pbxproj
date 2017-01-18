@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC704C5B1E2F4CA200DF9BDE /* MoonDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DC704C5A1E2F4CA200DF9BDE /* MoonDiskCache.m */; };
 		DCF067671E2F202D0019BCAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF067661E2F202D0019BCAB /* main.m */; };
 		DCF0676A1E2F202D0019BCAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF067691E2F202D0019BCAB /* AppDelegate.m */; };
 		DCF0676D1E2F202D0019BCAB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF0676C1E2F202D0019BCAB /* ViewController.m */; };
 		DCF067701E2F202D0019BCAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCF0676E1E2F202D0019BCAB /* Main.storyboard */; };
 		DCF067721E2F202D0019BCAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCF067711E2F202D0019BCAB /* Assets.xcassets */; };
 		DCF067751E2F202D0019BCAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCF067731E2F202D0019BCAB /* LaunchScreen.storyboard */; };
+		DCF0677F1E2F213B0019BCAB /* MoonCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF0677E1E2F213B0019BCAB /* MoonCacheManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC704C591E2F4CA200DF9BDE /* MoonDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoonDiskCache.h; sourceTree = "<group>"; };
+		DC704C5A1E2F4CA200DF9BDE /* MoonDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoonDiskCache.m; sourceTree = "<group>"; };
 		DCF067621E2F202D0019BCAB /* MoonCacheManagerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonCacheManagerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCF067661E2F202D0019BCAB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DCF067681E2F202D0019BCAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +30,8 @@
 		DCF067711E2F202D0019BCAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCF067741E2F202D0019BCAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCF067761E2F202D0019BCAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCF0677D1E2F213B0019BCAB /* MoonCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoonCacheManager.h; sourceTree = "<group>"; };
+		DCF0677E1E2F213B0019BCAB /* MoonCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoonCacheManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC704C581E2F4C8700DF9BDE /* DiskCache */ = {
+			isa = PBXGroup;
+			children = (
+				DC704C591E2F4CA200DF9BDE /* MoonDiskCache.h */,
+				DC704C5A1E2F4CA200DF9BDE /* MoonDiskCache.m */,
+			);
+			path = DiskCache;
+			sourceTree = "<group>";
+		};
 		DCF067591E2F202D0019BCAB = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +98,9 @@
 		DCF0677C1E2F20700019BCAB /* MoonCacheManager */ = {
 			isa = PBXGroup;
 			children = (
+				DCF0677D1E2F213B0019BCAB /* MoonCacheManager.h */,
+				DCF0677E1E2F213B0019BCAB /* MoonCacheManager.m */,
+				DC704C581E2F4C8700DF9BDE /* DiskCache */,
 			);
 			name = MoonCacheManager;
 			path = ../MoonCacheManager;
@@ -160,8 +178,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCF0676D1E2F202D0019BCAB /* ViewController.m in Sources */,
+				DCF0677F1E2F213B0019BCAB /* MoonCacheManager.m in Sources */,
 				DCF0676A1E2F202D0019BCAB /* AppDelegate.m in Sources */,
 				DCF067671E2F202D0019BCAB /* main.m in Sources */,
+				DC704C5B1E2F4CA200DF9BDE /* MoonDiskCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +338,7 @@
 				DCF0677B1E2F202D0019BCAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
