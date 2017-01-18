@@ -11,6 +11,12 @@
 		DC704C651E2F551300DF9BDE /* MoonSqlQueryMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = DC704C641E2F551300DF9BDE /* MoonSqlQueryMaker.m */; };
 		DC704C681E2F57B300DF9BDE /* MoonSqlSaveMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = DC704C671E2F57B300DF9BDE /* MoonSqlSaveMaker.m */; };
 		DC704C6B1E2F57D100DF9BDE /* MoonSqlDeleteMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = DC704C6A1E2F57D100DF9BDE /* MoonSqlDeleteMaker.m */; };
+		DC704C7C1E2F5D1800DF9BDE /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = DC704C711E2F5D1800DF9BDE /* FMDatabase.m */; };
+		DC704C7D1E2F5D1800DF9BDE /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DC704C731E2F5D1800DF9BDE /* FMDatabaseAdditions.m */; };
+		DC704C7E1E2F5D1800DF9BDE /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = DC704C751E2F5D1800DF9BDE /* FMDatabasePool.m */; };
+		DC704C7F1E2F5D1800DF9BDE /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = DC704C771E2F5D1800DF9BDE /* FMDatabaseQueue.m */; };
+		DC704C801E2F5D1800DF9BDE /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = DC704C7A1E2F5D1800DF9BDE /* FMResultSet.m */; };
+		DC704C811E2F5D1800DF9BDE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC704C7B1E2F5D1800DF9BDE /* Info.plist */; };
 		DCF067671E2F202D0019BCAB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF067661E2F202D0019BCAB /* main.m */; };
 		DCF0676A1E2F202D0019BCAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF067691E2F202D0019BCAB /* AppDelegate.m */; };
 		DCF0676D1E2F202D0019BCAB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF0676C1E2F202D0019BCAB /* ViewController.m */; };
@@ -31,6 +37,18 @@
 		DC704C691E2F57D100DF9BDE /* MoonSqlDeleteMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoonSqlDeleteMaker.h; sourceTree = "<group>"; };
 		DC704C6A1E2F57D100DF9BDE /* MoonSqlDeleteMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoonSqlDeleteMaker.m; sourceTree = "<group>"; };
 		DC704C6E1E2F5B1B00DF9BDE /* MoonTableRelationType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoonTableRelationType.h; sourceTree = "<group>"; };
+		DC704C701E2F5D1800DF9BDE /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		DC704C711E2F5D1800DF9BDE /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		DC704C721E2F5D1800DF9BDE /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		DC704C731E2F5D1800DF9BDE /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		DC704C741E2F5D1800DF9BDE /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		DC704C751E2F5D1800DF9BDE /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		DC704C761E2F5D1800DF9BDE /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		DC704C771E2F5D1800DF9BDE /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		DC704C781E2F5D1800DF9BDE /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		DC704C791E2F5D1800DF9BDE /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		DC704C7A1E2F5D1800DF9BDE /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		DC704C7B1E2F5D1800DF9BDE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCF067621E2F202D0019BCAB /* MoonCacheManagerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonCacheManagerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCF067661E2F202D0019BCAB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DCF067681E2F202D0019BCAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -97,6 +115,25 @@
 			path = Headers;
 			sourceTree = "<group>";
 		};
+		DC704C6F1E2F5D1800DF9BDE /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				DC704C701E2F5D1800DF9BDE /* FMDatabase.h */,
+				DC704C711E2F5D1800DF9BDE /* FMDatabase.m */,
+				DC704C721E2F5D1800DF9BDE /* FMDatabaseAdditions.h */,
+				DC704C731E2F5D1800DF9BDE /* FMDatabaseAdditions.m */,
+				DC704C741E2F5D1800DF9BDE /* FMDatabasePool.h */,
+				DC704C751E2F5D1800DF9BDE /* FMDatabasePool.m */,
+				DC704C761E2F5D1800DF9BDE /* FMDatabaseQueue.h */,
+				DC704C771E2F5D1800DF9BDE /* FMDatabaseQueue.m */,
+				DC704C781E2F5D1800DF9BDE /* FMDB.h */,
+				DC704C791E2F5D1800DF9BDE /* FMResultSet.h */,
+				DC704C7A1E2F5D1800DF9BDE /* FMResultSet.m */,
+				DC704C7B1E2F5D1800DF9BDE /* Info.plist */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
 		DCF067591E2F202D0019BCAB = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +154,7 @@
 		DCF067641E2F202D0019BCAB /* MoonCacheManagerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				DC704C6F1E2F5D1800DF9BDE /* fmdb */,
 				DCF067681E2F202D0019BCAB /* AppDelegate.h */,
 				DCF067691E2F202D0019BCAB /* AppDelegate.m */,
 				DCF0676B1E2F202D0019BCAB /* ViewController.h */,
@@ -208,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC704C811E2F5D1800DF9BDE /* Info.plist in Resources */,
 				DCF067751E2F202D0019BCAB /* LaunchScreen.storyboard in Resources */,
 				DCF067721E2F202D0019BCAB /* Assets.xcassets in Resources */,
 				DCF067701E2F202D0019BCAB /* Main.storyboard in Resources */,
@@ -224,11 +263,16 @@
 				DCF0676D1E2F202D0019BCAB /* ViewController.m in Sources */,
 				DC704C651E2F551300DF9BDE /* MoonSqlQueryMaker.m in Sources */,
 				DCF0677F1E2F213B0019BCAB /* MoonCacheManager.m in Sources */,
+				DC704C7C1E2F5D1800DF9BDE /* FMDatabase.m in Sources */,
 				DC704C6B1E2F57D100DF9BDE /* MoonSqlDeleteMaker.m in Sources */,
+				DC704C7F1E2F5D1800DF9BDE /* FMDatabaseQueue.m in Sources */,
+				DC704C801E2F5D1800DF9BDE /* FMResultSet.m in Sources */,
+				DC704C7E1E2F5D1800DF9BDE /* FMDatabasePool.m in Sources */,
 				DC704C681E2F57B300DF9BDE /* MoonSqlSaveMaker.m in Sources */,
 				DCF0676A1E2F202D0019BCAB /* AppDelegate.m in Sources */,
 				DCF067671E2F202D0019BCAB /* main.m in Sources */,
 				DC704C5B1E2F4CA200DF9BDE /* MoonDiskCache.m in Sources */,
+				DC704C7D1E2F5D1800DF9BDE /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
