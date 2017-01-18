@@ -30,6 +30,7 @@
 		DC704C671E2F57B300DF9BDE /* MoonSqlSaveMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoonSqlSaveMaker.m; sourceTree = "<group>"; };
 		DC704C691E2F57D100DF9BDE /* MoonSqlDeleteMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoonSqlDeleteMaker.h; sourceTree = "<group>"; };
 		DC704C6A1E2F57D100DF9BDE /* MoonSqlDeleteMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoonSqlDeleteMaker.m; sourceTree = "<group>"; };
+		DC704C6E1E2F5B1B00DF9BDE /* MoonTableRelationType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoonTableRelationType.h; sourceTree = "<group>"; };
 		DCF067621E2F202D0019BCAB /* MoonCacheManagerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoonCacheManagerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCF067661E2F202D0019BCAB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DCF067681E2F202D0019BCAB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,6 +63,7 @@
 				DC704C5A1E2F4CA200DF9BDE /* MoonDiskCache.m */,
 				DC704C5C1E2F511700DF9BDE /* Protocols */,
 				DC704C601E2F517300DF9BDE /* Models */,
+				DC704C6C1E2F5AA600DF9BDE /* Headers */,
 			);
 			path = DiskCache;
 			sourceTree = "<group>";
@@ -85,6 +87,14 @@
 				DC704C6A1E2F57D100DF9BDE /* MoonSqlDeleteMaker.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		DC704C6C1E2F5AA600DF9BDE /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				DC704C6E1E2F5B1B00DF9BDE /* MoonTableRelationType.h */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 		DCF067591E2F202D0019BCAB = {
