@@ -41,8 +41,7 @@
 +(NSArray *)queryWithSqlMaker:(void(^)(MoonSqlQueryMaker *maker))maker andError:(NSError **)error{
     MoonSqlQueryMaker *queryMaker = [MoonSqlQueryMaker new];
     maker(queryMaker);
-    
-    return nil;
+    return [[[self shareManager] diskCache] queryWithSqlMaker:queryMaker andError:error];
 }
 
 #pragma mark - save

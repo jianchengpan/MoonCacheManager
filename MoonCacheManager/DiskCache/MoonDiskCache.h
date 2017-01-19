@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MoonSqlQueryMaker.h"
+#import "MoonSqlSaveMaker.h"
+#import "MoonSqlDeleteMaker.h"
+
 @interface MoonDiskCache : NSObject
+
+-(NSArray *)queryWithSqlMaker:(MoonSqlQueryMaker *)maker andError:(NSError **)error;
+
+-(void)saveWithSqlMaker:(MoonSqlSaveMaker *)maker andError:(NSError **)error;
 
 @end

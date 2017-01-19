@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC12F0BC1E3072200006AF12 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC12F0BB1E3072200006AF12 /* libsqlite3.0.tbd */; };
 		DC704C5B1E2F4CA200DF9BDE /* MoonDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DC704C5A1E2F4CA200DF9BDE /* MoonDiskCache.m */; };
 		DC704C651E2F551300DF9BDE /* MoonSqlQueryMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = DC704C641E2F551300DF9BDE /* MoonSqlQueryMaker.m */; };
 		DC704C681E2F57B300DF9BDE /* MoonSqlSaveMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = DC704C671E2F57B300DF9BDE /* MoonSqlSaveMaker.m */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC12F0BB1E3072200006AF12 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		DC704C591E2F4CA200DF9BDE /* MoonDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoonDiskCache.h; sourceTree = "<group>"; };
 		DC704C5A1E2F4CA200DF9BDE /* MoonDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoonDiskCache.m; sourceTree = "<group>"; };
 		DC704C621E2F51DA00DF9BDE /* MoonDiskCacheProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoonDiskCacheProtocol.h; sourceTree = "<group>"; };
@@ -68,12 +70,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC12F0BC1E3072200006AF12 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC12F0BA1E30721F0006AF12 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC12F0BB1E3072200006AF12 /* libsqlite3.0.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DC704C581E2F4C8700DF9BDE /* DiskCache */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +151,7 @@
 				DCF0677C1E2F20700019BCAB /* MoonCacheManager */,
 				DCF067641E2F202D0019BCAB /* MoonCacheManagerDemo */,
 				DCF067631E2F202D0019BCAB /* Products */,
+				DC12F0BA1E30721F0006AF12 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
