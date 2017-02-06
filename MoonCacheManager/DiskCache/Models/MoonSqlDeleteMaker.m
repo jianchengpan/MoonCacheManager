@@ -10,4 +10,8 @@
 
 @implementation MoonSqlDeleteMaker
 
+-(NSArray<NSString *> *)generateSqls{
+    return nil;
+}
+
 @end

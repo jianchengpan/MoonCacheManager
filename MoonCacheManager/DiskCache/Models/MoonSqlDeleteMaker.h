@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MoonSqlMakerProtocol.h"
 
-@interface MoonSqlDeleteMaker : NSObject
+@interface MoonSqlDeleteMaker : NSObject<MoonSqlMakerProtocol>
 
 @end

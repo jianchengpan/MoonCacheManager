@@ -29,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		DC12F0BB1E3072200006AF12 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		DC36964D1E48171900FC8FB4 /* MoonSqlMakerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoonSqlMakerProtocol.h; sourceTree = "<group>"; };
 		DC704C591E2F4CA200DF9BDE /* MoonDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoonDiskCache.h; sourceTree = "<group>"; };
 		DC704C5A1E2F4CA200DF9BDE /* MoonDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoonDiskCache.m; sourceTree = "<group>"; };
 		DC704C621E2F51DA00DF9BDE /* MoonDiskCacheProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoonDiskCacheProtocol.h; sourceTree = "<group>"; };
@@ -85,6 +86,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DC36964E1E48188200FC8FB4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		DC704C581E2F4C8700DF9BDE /* DiskCache */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +101,7 @@
 				DC704C5C1E2F511700DF9BDE /* Protocols */,
 				DC704C601E2F517300DF9BDE /* Models */,
 				DC704C6C1E2F5AA600DF9BDE /* Headers */,
+				DC36964E1E48188200FC8FB4 /* Utils */,
 			);
 			path = DiskCache;
 			sourceTree = "<group>";
@@ -101,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				DC704C621E2F51DA00DF9BDE /* MoonDiskCacheProtocol.h */,
+				DC36964D1E48171900FC8FB4 /* MoonSqlMakerProtocol.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";

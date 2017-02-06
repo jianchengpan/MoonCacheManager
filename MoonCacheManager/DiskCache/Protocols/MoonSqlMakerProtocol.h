@@ -10,4 +10,6 @@
 
 @protocol MoonSqlMakerProtocol <NSObject>
 
+-(NSArray<NSString *> *)generateSqls;
+
 @end

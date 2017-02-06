@@ -10,4 +10,8 @@
 
 @implementation MoonSqlSaveMaker
 
+-(NSArray<NSString *> *)generateSqls{
+    return nil;
+}
+
 @end

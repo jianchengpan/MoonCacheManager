@@ -10,4 +10,8 @@
 
 @implementation MoonSqlQueryMaker
 
+-(NSArray<NSString *> *)generateSqls{
+    return nil;
+}
+
 @end
