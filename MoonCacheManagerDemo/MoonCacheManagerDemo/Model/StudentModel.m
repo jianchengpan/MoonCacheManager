@@ -11,7 +11,7 @@
 @implementation StudentModel
 
 +(NSString *)indexKey{
-    
+    return @"sID";
 }
 
 @end
