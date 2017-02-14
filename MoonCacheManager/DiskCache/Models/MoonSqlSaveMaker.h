@@ -11,4 +11,8 @@
 
 @interface MoonSqlSaveMaker : NSObject<MoonSqlMakerProtocol>
 
+@property (nonatomic, strong) id operatingObj;
+
+-(MoonSqlSaveMaker *(^)(id))save;
+
 @end

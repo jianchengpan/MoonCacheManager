@@ -10,4 +10,33 @@
 
 @protocol MoonDiskCacheProtocol
 
+@required
+
+
+
+/**
+
+ uniqueIdentifier of a object in table
+
+ @return uniqueIdentifier key
+ */
++(NSString *)indexKey;
+
+@optional
+
+
+/**
+ the properties need not save to disk
+
+ @return ignoreProperties
+ */
+-(NSArray<NSString *> *)ignoreProperties;
+
+/**
+ customize objct data info that need save to disk
+
+ @return data info
+ */
+-(NSDictionary *)dataMap;
+
 @end

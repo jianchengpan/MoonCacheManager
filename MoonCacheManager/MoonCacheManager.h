@@ -8,9 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MoonSqlQueryMaker.h"
-#import "MoonSqlSaveMaker.h"
-#import "MoonSqlDeleteMaker.h"
+#import "MoonDiskCache.h"
 
 @interface MoonCacheManager : NSObject
 

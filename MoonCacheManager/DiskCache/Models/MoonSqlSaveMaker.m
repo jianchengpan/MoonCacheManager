@@ -14,4 +14,11 @@
     return nil;
 }
 
+-(MoonSqlSaveMaker *(^)(id))save{
+    return ^id(id obj){
+        self.operatingObj = obj;
+        return self;
+    };
+}
+
 @end

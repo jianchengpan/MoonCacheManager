@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "MoonCacheManager.h"
+
+#import "StudentModel.h"
 
 @interface ViewController ()
 
@@ -18,6 +19,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    StudentModel *student = [StudentModel new];
+    student.name = @"Davi";
+    student.age = 21;
+    
+    [MoonCacheManager saveWithSqlMaker:^(MoonSqlSaveMaker *maker) {
+        
+    } andError:nil];
+    
     [MoonCacheManager queryWithSqlMaker:^(MoonSqlQueryMaker *maker) {
         
     } andError:nil];

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A88BE7801E52EAC80037DCE0 /* StudentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A88BE77F1E52EAC80037DCE0 /* StudentModel.m */; };
 		DC12F0BC1E3072200006AF12 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC12F0BB1E3072200006AF12 /* libsqlite3.0.tbd */; };
 		DC704C5B1E2F4CA200DF9BDE /* MoonDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DC704C5A1E2F4CA200DF9BDE /* MoonDiskCache.m */; };
 		DC704C651E2F551300DF9BDE /* MoonSqlQueryMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = DC704C641E2F551300DF9BDE /* MoonSqlQueryMaker.m */; };
@@ -28,6 +29,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A88BE77E1E52EAC80037DCE0 /* StudentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentModel.h; sourceTree = "<group>"; };
+		A88BE77F1E52EAC80037DCE0 /* StudentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentModel.m; sourceTree = "<group>"; };
+		A88BE7821E52FB820037DCE0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		DC12F0BB1E3072200006AF12 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		DC36964D1E48171900FC8FB4 /* MoonSqlMakerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoonSqlMakerProtocol.h; sourceTree = "<group>"; };
 		DC704C591E2F4CA200DF9BDE /* MoonDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoonDiskCache.h; sourceTree = "<group>"; };
@@ -78,6 +82,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A88BE77D1E52EA940037DCE0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A88BE77E1E52EAC80037DCE0 /* StudentModel.h */,
+				A88BE77F1E52EAC80037DCE0 /* StudentModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A88BE7811E52EF770037DCE0 /* Catogery */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Catogery;
+			sourceTree = "<group>";
+		};
 		DC12F0BA1E30721F0006AF12 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +118,7 @@
 			children = (
 				DC704C591E2F4CA200DF9BDE /* MoonDiskCache.h */,
 				DC704C5A1E2F4CA200DF9BDE /* MoonDiskCache.m */,
+				A88BE7811E52EF770037DCE0 /* Catogery */,
 				DC704C5C1E2F511700DF9BDE /* Protocols */,
 				DC704C601E2F517300DF9BDE /* Models */,
 				DC704C6C1E2F5AA600DF9BDE /* Headers */,
@@ -176,6 +197,7 @@
 		DCF067641E2F202D0019BCAB /* MoonCacheManagerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				A88BE77D1E52EA940037DCE0 /* Model */,
 				DC704C6F1E2F5D1800DF9BDE /* fmdb */,
 				DCF067681E2F202D0019BCAB /* AppDelegate.h */,
 				DCF067691E2F202D0019BCAB /* AppDelegate.m */,
@@ -194,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				DCF067661E2F202D0019BCAB /* main.m */,
+				A88BE7821E52FB820037DCE0 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -295,6 +318,7 @@
 				DCF067671E2F202D0019BCAB /* main.m in Sources */,
 				DC704C5B1E2F4CA200DF9BDE /* MoonDiskCache.m in Sources */,
 				DC704C7D1E2F5D1800DF9BDE /* FMDatabaseAdditions.m in Sources */,
+				A88BE7801E52EAC80037DCE0 /* StudentModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +438,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = MoonCacheManagerDemo/PrefixHeader.pch;
 				INFOPLIST_FILE = MoonCacheManagerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jianchengpan.cn.MoonCacheManagerDemo;
@@ -425,6 +450,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = MoonCacheManagerDemo/PrefixHeader.pch;
 				INFOPLIST_FILE = MoonCacheManagerDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jianchengpan.cn.MoonCacheManagerDemo;

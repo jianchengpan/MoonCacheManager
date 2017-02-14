@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MoonDiskCacheProtocol.h"
+
 #import "MoonSqlQueryMaker.h"
 #import "MoonSqlSaveMaker.h"
 #import "MoonSqlDeleteMaker.h"
