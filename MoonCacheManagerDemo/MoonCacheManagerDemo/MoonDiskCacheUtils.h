@@ -10,7 +10,6 @@
 
 @interface MoonDiskCacheUtils : NSObject
 
-
 /**
  get all the properties define in the class
 
@@ -27,5 +26,14 @@
  @return valid properties name
  */
 +(NSMutableArray <NSString *>*)validPropertiesNameOfClass:(Class)cls;
+
+
+/**
+ translate a object to dictionary, dictionary's keys is subset of valid properties, and the property value is nil will not translate into dictionary
+
+ @param obj operating obj
+ @return dictionary contain poperty's key and value
+ */
++(NSMutableDictionary *)translateObjcToDictionary:(id)obj;
 
 @end

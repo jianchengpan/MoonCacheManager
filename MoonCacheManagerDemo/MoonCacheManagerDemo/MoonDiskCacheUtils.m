@@ -142,4 +142,18 @@
     return validPropertiesName;
 }
 
+#pragma mark - translateObject
+
++(NSMutableDictionary *)translateObjcToDictionary:(id)obj{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    
+    for (NSString *key in [self validPropertiesNameOfClass:[obj class]]) {
+        id value = [obj valueForKey:key];
+        if(value)
+            [dic setObject:value forKey:key];
+    }
+    
+    return dic;
+}
+
 @end

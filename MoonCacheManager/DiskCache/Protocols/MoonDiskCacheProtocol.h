@@ -33,7 +33,7 @@
 +(NSArray<NSString *> *)ignoreProperties;
 
 /**
- customize objct data info that need save to disk
+ customize objct data info that need save to disk, default use MoonDiskCacheUtils translateObjcToDictionary method
 
  @return data info
  */

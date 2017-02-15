@@ -23,6 +23,7 @@
     StudentModel *student = [StudentModel new];
     student.name = @"Davi";
     student.age = 21;
+    student.ignoreProperties = @"ignoreProperties";
     
     [MoonCacheManager saveWithSqlMaker:^(MoonSqlSaveMaker *maker) {
         
@@ -33,8 +34,9 @@
     } andError:nil];
     
     
-    [MoonDiskCacheUtils allPropertiesNameOfClass:[StudentModel class]];
+    NSLog(@"%@",[MoonDiskCacheUtils allPropertiesNameOfClass:[StudentModel class]]);
     NSLog(@"%@",[MoonDiskCacheUtils validPropertiesNameOfClass:[StudentModel class]]);
+    NSLog(@"%@",[MoonDiskCacheUtils translateObjcToDictionary:student]);
 }
 
 
