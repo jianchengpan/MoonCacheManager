@@ -19,4 +19,13 @@
  */
 +(NSMutableArray <NSString *>*)allPropertiesNameOfClass:(Class) cls;
 
+
+/**
+ get all properties of class,except readOnly proeprties and ignore properties(define in MoonDiskCacheProtocol)
+
+ @param cls operating class
+ @return valid properties name
+ */
++(NSMutableArray <NSString *>*)validPropertiesNameOfClass:(Class)cls;
+
 @end

@@ -32,7 +32,9 @@
         
     } andError:nil];
     
-    NSLog(@"%@",[MoonDiskCacheUtils allPropertiesNameOfClass:[StudentModel class]]);
+    
+    [MoonDiskCacheUtils allPropertiesNameOfClass:[StudentModel class]];
+    NSLog(@"%@",[MoonDiskCacheUtils validPropertiesNameOfClass:[StudentModel class]]);
 }
 
 

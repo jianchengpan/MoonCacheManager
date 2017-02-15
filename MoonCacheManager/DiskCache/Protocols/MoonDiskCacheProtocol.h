@@ -26,11 +26,11 @@
 
 
 /**
- the properties need not save to disk
+ the properties don't need save to disk
 
  @return ignoreProperties
  */
--(NSArray<NSString *> *)ignoreProperties;
++(NSArray<NSString *> *)ignoreProperties;
 
 /**
  customize objct data info that need save to disk

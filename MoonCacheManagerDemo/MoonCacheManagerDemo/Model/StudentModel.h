@@ -14,4 +14,7 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) NSInteger age;
 
+@property (nonatomic,readonly) NSString *readOnlyProerties;
+@property (nonatomic, copy) NSString *ignoreProperties;
+
 @end

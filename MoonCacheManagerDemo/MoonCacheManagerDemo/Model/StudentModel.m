@@ -14,4 +14,8 @@
     return @"sID";
 }
 
++(NSArray<NSString *> *)ignoreProperties{
+    return @[@"ignoreProperties"];
+}
+
 @end
