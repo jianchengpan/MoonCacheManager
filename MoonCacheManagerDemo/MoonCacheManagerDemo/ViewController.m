@@ -31,6 +31,8 @@
     [MoonCacheManager queryWithSqlMaker:^(MoonSqlQueryMaker *maker) {
         
     } andError:nil];
+    
+    NSLog(@"%@",[MoonDiskCacheUtils allPropertiesNameOfClass:[StudentModel class]]);
 }
 
 

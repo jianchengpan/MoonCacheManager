@@ -14,6 +14,8 @@
 #import "MoonSqlSaveMaker.h"
 #import "MoonSqlDeleteMaker.h"
 
+#import "MoonDiskCacheUtils.h"
+
 @interface MoonDiskCache : NSObject
 
 -(NSArray *)queryWithSqlMaker:(MoonSqlQueryMaker *)maker andError:(NSError **)error;
