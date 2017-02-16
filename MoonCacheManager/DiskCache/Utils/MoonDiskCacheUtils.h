@@ -15,7 +15,7 @@
 #pragma mark - properties
 
 /**
- get properties info , each property was reorganized as MoonDiskCachePropertyInfo
+ get properties info , each property info was reorganized as MoonDiskCachePropertyInfo
 
  @param cls quering class
  @return properties info array

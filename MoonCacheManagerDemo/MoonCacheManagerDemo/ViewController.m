@@ -35,6 +35,7 @@
     
     NSLog(@"%@",[MoonDiskCacheUtils propertiesInfoOfClass:[StudentModel class]]);
     NSLog(@"%@",[MoonDiskCacheUtils translateObjcToDictionary:student]);
+    NSLog(@"%@",[MoonDiskCacheUtils generateCreateTableSqlForClass:[student class]]);
 }
 
 

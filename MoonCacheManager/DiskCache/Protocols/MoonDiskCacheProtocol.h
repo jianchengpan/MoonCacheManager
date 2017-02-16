@@ -37,6 +37,6 @@
 
  @return data info
  */
--(NSDictionary *)dataMap;
+-(NSMutableDictionary *)dataMap;
 
 @end

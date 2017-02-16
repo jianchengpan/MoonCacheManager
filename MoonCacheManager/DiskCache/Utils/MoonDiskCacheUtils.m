@@ -139,7 +139,18 @@
 #pragma mark - sql
 
 +(NSString *)generateCreateTableSqlForClass:(Class)cls{
-    NSMutableString *createTableSql = [NSMutableString stringWithFormat:@"create table %@ ( id integer primary key autoincrement , ",NSStringFromClass(cls)];
+
+    NSMutableString *createTableSql = [NSMutableString stringWithFormat:@"create table %@ ( id integer primary key autoincrement ,",NSStringFromClass(cls)];
+    
+    for (MoonDiskCachePropertyInfo *propertyInfo in [self propertiesInfoOfClass:cls]) {
+        if(!propertyInfo.isValidProperties)
+            continue;
+        [createTableSql appendFormat:@"%@ %@,",propertyInfo.propertyName,propertyInfo.sqlType];
+    }
+    
+    [createTableSql replaceCharactersInRange:NSMakeRange(createTableSql.length - 1, 1) withString:@""];
+    
+    [createTableSql appendString:@")"];
     
     return createTableSql;
 }
