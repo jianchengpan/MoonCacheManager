@@ -48,6 +48,7 @@
 +(void)saveWithSqlMaker:(void (^)(MoonSqlSaveMaker *))maker andError:(NSError *__autoreleasing *)error{
     MoonSqlSaveMaker *saveMaker = [MoonSqlSaveMaker new];
     maker(saveMaker);
+    return [[[self shareManager] diskCache] saveWithSqlMaker:saveMaker andError:error];
 }
 
 #pragma mark - delete

@@ -10,9 +10,17 @@
 
 @implementation MoonSqlSaveMaker
 
+#pragma mark - sqlMaker protocol
+
 -(NSArray<NSString *> *)generateSqls{
     return nil;
 }
+
+-(NSArray<NSString *> *)operateTablesRelatedClassName{
+    return nil;
+}
+
+#pragma mark - operation
 
 -(MoonSqlSaveMaker *(^)(id))save{
     return ^id(id obj){
