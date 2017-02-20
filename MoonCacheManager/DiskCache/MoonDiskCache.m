@@ -37,6 +37,14 @@
     return singleDBQueue;
 }
 
+#pragma mark - check table info
+
+-(void)checkTableInfoWithSqlMaker:(id<MoonSqlMakerProtocol>) sqlMaker withError:(NSError *__autoreleasing *)error{
+    for (Class tempClass in [sqlMaker operateTablesRelatedClass]) {
+        
+    }
+}
+
 #pragma mark - workWith sqlMaker
 
 -(NSArray *)queryWithSqlMaker:(MoonSqlQueryMaker *)maker andError:(NSError *__autoreleasing *)error{

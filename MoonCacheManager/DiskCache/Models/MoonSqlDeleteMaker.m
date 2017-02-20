@@ -10,8 +10,13 @@
 
 @implementation MoonSqlDeleteMaker
 
+#pragma mark - sqlMaker protocol
+
 -(NSArray<NSString *> *)generateSqls{
     return nil;
 }
 
+-(NSArray<Class> *)operateTablesRelatedClass{
+    return nil;
+}
 @end

@@ -22,8 +22,8 @@
 /**
  the classes that generated sql operated table related class,related class must implementation protocol MoonDiskCacheProtocol
 
- @return related class name array
+ @return related class array
  */
--(NSArray<NSString *> *)operateTablesRelatedClassName;
+-(NSArray<Class> *)operateTablesRelatedClass;
 
 @end

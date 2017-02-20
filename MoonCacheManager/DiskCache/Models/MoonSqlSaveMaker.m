@@ -16,7 +16,7 @@
     return nil;
 }
 
--(NSArray<NSString *> *)operateTablesRelatedClassName{
+-(NSArray<Class> *)operateTablesRelatedClass{
     return nil;
 }
 
