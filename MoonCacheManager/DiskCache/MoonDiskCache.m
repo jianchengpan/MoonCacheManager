@@ -7,14 +7,13 @@
 //
 
 #import "MoonDiskCache.h"
-#import "FMDB.h"
+
 
 #define DataBaseName @"MoonDiskCatch.db"
 
 @interface MoonDiskCache ()
 
 @property (nonatomic, readonly) NSString *databasePath;
-@property (nonatomic, readonly) FMDatabaseQueue *databaseQueue;
 
 @end
 
@@ -37,14 +36,6 @@
     return singleDBQueue;
 }
 
-#pragma mark - check table info
-
--(void)checkTableInfoWithSqlMaker:(id<MoonSqlMakerProtocol>) sqlMaker withError:(NSError *__autoreleasing *)error{
-    for (Class tempClass in [sqlMaker operateTablesRelatedClass]) {
-        
-    }
-}
-
 #pragma mark - workWith sqlMaker
 
 -(NSArray *)queryWithSqlMaker:(MoonSqlQueryMaker *)maker andError:(NSError *__autoreleasing *)error{
@@ -60,5 +51,24 @@
     }];
 }
 
+#pragma mark - execute sql
+
+-(FMResultSet *)executeQuerySql:(NSString *)sql withError:(NSError *__autoreleasing *)error{
+    __block FMResultSet *rs = nil;
+    [self.databaseQueue inDatabase:^(FMDatabase *db) {
+        rs = [db executeQuery:sql values:nil error:error];
+        [db close];
+    }];
+    return rs;
+}
+
+-(BOOL)executeUpdateSql:(NSString *)sql withError:(NSError *__autoreleasing *)error{
+    __block BOOL success = NO;
+    [self.databaseQueue inDatabase:^(FMDatabase *db) {
+        success = [db executeUpdate:sql values:nil error:error];
+        [db close];
+    }];
+    return success;
+}
 
 @end

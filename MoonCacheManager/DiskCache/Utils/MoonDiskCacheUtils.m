@@ -9,10 +9,10 @@
 #include <objc/runtime.h>
 #import "MoonDiskCacheUtils.h"
 
-#define MoonDiskCacheUtilsAllPropertiesNameKey @"allProperties"
-#define MoonDiskCacheUtilsValidPropertiesNameKey @"validProperties"
+#import "MoonCacheManager.h"
 
 #define MoonDiskCacheUtilsPropertiesInfoKey @"propertiesInfo"
+#define MoonDiskCacheUtilsTableCheckInfoKey @"tableCheckInfo"
 
 @interface MoonDiskCacheUtils ()
 
@@ -154,5 +154,50 @@
     
     return createTableSql;
 }
+
+#pragma mark - check table info
+
++(MoonDiskCacheTableCheckInfo *)tableCheckInfoOfclass:(Class)cls{
+    return [self getCacheInfoOfClass:cls forKey:MoonDiskCacheUtilsTableCheckInfoKey];
+}
+
++(void)cacheTableCheckInfo:(MoonDiskCacheTableCheckInfo *)info forClass:(Class)cls{
+    [self cacheInfo:info forClass:cls forKey:MoonDiskCacheUtilsTableCheckInfoKey];
+}
+
+#pragma mark - tool
+
++(BOOL)existTableInDisk:(NSString *)tableName{
+    __block BOOL exist = NO;
+    NSError *error = nil;
+    
+    NSString *sql = [NSString stringWithFormat:@"select name from sqlite_master where name = '%@'",tableName];
+    FMResultSet *rs = [[MoonCacheManager shareManager].diskCache executeQuerySql:sql withError:&error];
+    exist = !error && [rs next];
+    
+    return exist;
+}
+
++(BOOL)isExistTableOfClass:(Class)cls andCreateIfNotExist:(BOOL)needCreate{
+    MoonDiskCacheTableCheckInfo *info = [self tableCheckInfoOfclass:cls];
+    if(!info){
+        info = [MoonDiskCacheTableCheckInfo new];
+        info.isTableExist = [self existTableInDisk:NSStringFromClass(cls)];
+        [self cacheTableCheckInfo:info forClass:cls];
+    }
+    if(!info.isTableExist && needCreate){
+        
+    }
+    
+    return info.isTableExist;
+}
+
++(void)checkTableInfoWithSqlMaker:(id<MoonSqlMakerProtocol>) sqlMaker withError:(NSError *__autoreleasing *)error{
+    for (Class cls in [sqlMaker operateTablesRelatedClass]) {
+        
+    }
+}
+
+
 
 @end

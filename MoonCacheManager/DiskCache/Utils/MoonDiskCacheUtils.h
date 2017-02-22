@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "MoonDiskCachePropertyInfo.h"
+#import "MoonDiskCacheTableCheckInfo.h"
 
 @interface MoonDiskCacheUtils : NSObject
 
@@ -41,5 +42,16 @@
  @return create table sql of class
  */
 +(NSString *)generateCreateTableSqlForClass:(Class)cls;
+
+
+#pragma mark - check table info
+
+/**
+ main check if table of class is exist,and whether relation of class is holonomic
+
+ @param sqlMaker the object comfirmed the protocol MoonSqlMakerProtocol
+ @param error error when check table info
+ */
++(void)checkTableInfoWithSqlMaker:(id<MoonSqlMakerProtocol>) sqlMaker withError:(NSError *__autoreleasing *)error;
 
 @end

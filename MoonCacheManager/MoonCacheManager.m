@@ -12,7 +12,7 @@
 
 @interface MoonCacheManager ()
 
-@property (nonatomic, strong) MoonDiskCache *diskCache;
+
 
 @end
 

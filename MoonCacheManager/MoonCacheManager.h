@@ -12,6 +12,8 @@
 
 @interface MoonCacheManager : NSObject
 
+@property (nonatomic, strong) MoonDiskCache *diskCache;
+
 +(instancetype)shareManager;
 
 +(NSArray *)queryWithSqlMaker:(void(^)(MoonSqlQueryMaker *maker))maker andError:(NSError **)error;
