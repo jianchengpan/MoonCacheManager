@@ -10,4 +10,8 @@
 
 @implementation MoonDiskCacheTableCheckInfo
 
+-(NSString *)description{
+    return [NSString stringWithFormat:@"exist:%d correctedTable:%d checkRelation:%d",self.isTableExist,self.isCorrectedTable,self.isCheckRelationInfo];
+}
+
 @end

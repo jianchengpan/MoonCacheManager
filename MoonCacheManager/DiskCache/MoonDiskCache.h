@@ -30,7 +30,15 @@
 
 #pragma mark - execute sql
 
--(FMResultSet *)executeQuerySql:(NSString *)sql withError:(NSError **)error;
+
+/**
+ execute query sql string,
+
+ @param sql <#sql description#>
+ @param error <#error description#>
+ @return <#return value description#>
+ */
+-(NSMutableArray<NSDictionary *>*)executeQuerySql:(NSString *)sql withError:(NSError **)error;
 
 -(BOOL)executeUpdateSql:(NSString *)sql withError:(NSError **)error;
 

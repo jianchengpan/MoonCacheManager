@@ -31,6 +31,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         singleDBQueue = [FMDatabaseQueue databaseQueueWithPath:self.databasePath];
+        NSLog(@"dbPath:%@",self.databasePath);
     });
     
     return singleDBQueue;
@@ -39,6 +40,7 @@
 #pragma mark - workWith sqlMaker
 
 -(NSArray *)queryWithSqlMaker:(MoonSqlQueryMaker *)maker andError:(NSError *__autoreleasing *)error{
+    [MoonDiskCacheUtils checkTableInfoWithSqlMaker:maker withError:error];
     [self.databaseQueue inDatabase:^(FMDatabase *db) {
         
     }];
@@ -53,20 +55,23 @@
 
 #pragma mark - execute sql
 
--(FMResultSet *)executeQuerySql:(NSString *)sql withError:(NSError *__autoreleasing *)error{
-    __block FMResultSet *rs = nil;
+-(NSMutableArray<NSDictionary *> *)executeQuerySql:(NSString *)sql withError:(NSError *__autoreleasing *)error{
+    __block NSMutableArray *resultArray = [NSMutableArray array];
     [self.databaseQueue inDatabase:^(FMDatabase *db) {
+        FMResultSet *rs = nil;
         rs = [db executeQuery:sql values:nil error:error];
-        [db close];
+        while ([rs next]) {
+            [resultArray addObject:[rs resultDictionary]];
+        }
+        [rs close];
     }];
-    return rs;
+    return resultArray;
 }
 
 -(BOOL)executeUpdateSql:(NSString *)sql withError:(NSError *__autoreleasing *)error{
     __block BOOL success = NO;
     [self.databaseQueue inDatabase:^(FMDatabase *db) {
         success = [db executeUpdate:sql values:nil error:error];
-        [db close];
     }];
     return success;
 }

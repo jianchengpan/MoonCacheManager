@@ -145,7 +145,7 @@
     for (MoonDiskCachePropertyInfo *propertyInfo in [self propertiesInfoOfClass:cls]) {
         if(!propertyInfo.isValidProperties)
             continue;
-        [createTableSql appendFormat:@"%@ %@,",propertyInfo.propertyName,propertyInfo.sqlType];
+        [createTableSql appendFormat:@" %@ %@,",propertyInfo.propertyName,propertyInfo.sqlType];
     }
     
     [createTableSql replaceCharactersInRange:NSMakeRange(createTableSql.length - 1, 1) withString:@""];
@@ -172,10 +172,42 @@
     NSError *error = nil;
     
     NSString *sql = [NSString stringWithFormat:@"select name from sqlite_master where name = '%@'",tableName];
-    FMResultSet *rs = [[MoonCacheManager shareManager].diskCache executeQuerySql:sql withError:&error];
-    exist = !error && [rs next];
-    
+    NSMutableArray *result = [[MoonCacheManager shareManager].diskCache executeQuerySql:sql withError:&error];
+    exist = !error && [result count];
     return exist;
+}
+
++(BOOL)correctTableOfClass:(Class)cls{
+    BOOL success = NO;
+    NSError *error = nil;
+    NSString *sql = [NSString stringWithFormat:@"select sql from sqlite_master where name = '%@'",NSStringFromClass(cls)];
+    NSMutableArray *result = [[MoonCacheManager shareManager].diskCache executeQuerySql:sql withError:&error];
+    
+    if(error)
+        return NO;
+    
+    sql = [[result firstObject] objectForKey:@"sql"];
+    
+    //get all properties save in disk
+    NSMutableArray *compents = [[sql componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@",)"]] mutableCopy];
+    [compents removeObjectAtIndex:0];
+    [compents removeLastObject];
+    
+    NSMutableDictionary *allPropertyKeyInDisk = [NSMutableDictionary dictionary];
+    for (NSString *tempString in compents) {
+        [allPropertyKeyInDisk setObject:[[tempString componentsSeparatedByString:@" "] lastObject] forKey:[[tempString componentsSeparatedByString:@" "] objectAtIndex:1]];
+    }
+    
+    for (MoonDiskCachePropertyInfo *info in [self propertiesInfoOfClass:cls]) {
+        if(![allPropertyKeyInDisk objectForKey:info.propertyName] && info.isValidProperties){
+            NSString *correctSql = [NSString stringWithFormat:@"alter table %@ add column %@ %@",NSStringFromClass(cls),info.propertyName,info.sqlType];
+            [[MoonCacheManager shareManager].diskCache executeUpdateSql:correctSql withError:&error];
+            if(error)
+                break;
+        }
+    }
+    success = error ? NO : YES;
+    return success;
 }
 
 +(BOOL)isExistTableOfClass:(Class)cls andCreateIfNotExist:(BOOL)needCreate{
@@ -183,18 +215,25 @@
     if(!info){
         info = [MoonDiskCacheTableCheckInfo new];
         info.isTableExist = [self existTableInDisk:NSStringFromClass(cls)];
+        if(info.isTableExist)
+           info.isCorrectedTable = [self correctTableOfClass:cls];
         [self cacheTableCheckInfo:info forClass:cls];
     }
-    if(!info.isTableExist && needCreate){
-        
-    }
     
+    if(!info.isTableExist && needCreate){
+        NSError *error = nil;
+        NSString *sql = [self generateCreateTableSqlForClass:cls];
+        [[MoonCacheManager shareManager].diskCache executeUpdateSql:sql withError:&error];
+        NSAssert(!error, @"create table %@ failed",error);
+        info.isTableExist = YES;
+        info.isCorrectedTable = YES;
+    }
     return info.isTableExist;
 }
 
 +(void)checkTableInfoWithSqlMaker:(id<MoonSqlMakerProtocol>) sqlMaker withError:(NSError *__autoreleasing *)error{
     for (Class cls in [sqlMaker operateTablesRelatedClass]) {
-        
+        [self isExistTableOfClass:cls andCreateIfNotExist:YES];
     }
 }
 

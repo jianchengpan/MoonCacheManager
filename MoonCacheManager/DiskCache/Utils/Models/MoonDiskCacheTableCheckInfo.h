@@ -12,6 +12,8 @@
 
 @property (nonatomic, assign) BOOL isTableExist;
 
+@property (nonatomic, assign) BOOL isCorrectedTable;
+
 @property (nonatomic, assign) BOOL isCheckRelationInfo;
 
 @end
