@@ -145,7 +145,10 @@
     for (MoonDiskCachePropertyInfo *propertyInfo in [self propertiesInfoOfClass:cls]) {
         if(!propertyInfo.isValidProperties)
             continue;
-        [createTableSql appendFormat:@" %@ %@,",propertyInfo.propertyName,propertyInfo.sqlType];
+        if([[cls indexKey] isEqualToString:propertyInfo.propertyName])
+            [createTableSql appendFormat:@" %@ %@ unique,",propertyInfo.propertyName,propertyInfo.sqlType];
+        else
+            [createTableSql appendFormat:@" %@ %@,",propertyInfo.propertyName,propertyInfo.sqlType];
     }
     
     [createTableSql replaceCharactersInRange:NSMakeRange(createTableSql.length - 1, 1) withString:@""];
@@ -155,17 +158,7 @@
     return createTableSql;
 }
 
-#pragma mark - check table info
-
-+(MoonDiskCacheTableCheckInfo *)tableCheckInfoOfclass:(Class)cls{
-    return [self getCacheInfoOfClass:cls forKey:MoonDiskCacheUtilsTableCheckInfoKey];
-}
-
-+(void)cacheTableCheckInfo:(MoonDiskCacheTableCheckInfo *)info forClass:(Class)cls{
-    [self cacheInfo:info forClass:cls forKey:MoonDiskCacheUtilsTableCheckInfoKey];
-}
-
-#pragma mark - tool
+#pragma mark - check table  tool
 
 +(BOOL)existTableInDisk:(NSString *)tableName{
     __block BOOL exist = NO;
@@ -195,7 +188,7 @@
     
     NSMutableDictionary *allPropertyKeyInDisk = [NSMutableDictionary dictionary];
     for (NSString *tempString in compents) {
-        [allPropertyKeyInDisk setObject:[[tempString componentsSeparatedByString:@" "] lastObject] forKey:[[tempString componentsSeparatedByString:@" "] objectAtIndex:1]];
+        [allPropertyKeyInDisk setObject:[[tempString componentsSeparatedByString:@" "] objectAtIndex:2] forKey:[[tempString componentsSeparatedByString:@" "] objectAtIndex:1]];
     }
     
     for (MoonDiskCachePropertyInfo *info in [self propertiesInfoOfClass:cls]) {
@@ -210,7 +203,7 @@
     return success;
 }
 
-+(BOOL)isExistTableOfClass:(Class)cls andCreateIfNotExist:(BOOL)needCreate{
++(BOOL)isExistTableOfClass:(Class)cls andCreateIfNotExist:(BOOL)needCreate andError:(NSError **)error{
     MoonDiskCacheTableCheckInfo *info = [self tableCheckInfoOfclass:cls];
     if(!info){
         info = [MoonDiskCacheTableCheckInfo new];
@@ -221,19 +214,28 @@
     }
     
     if(!info.isTableExist && needCreate){
-        NSError *error = nil;
         NSString *sql = [self generateCreateTableSqlForClass:cls];
-        [[MoonCacheManager shareManager].diskCache executeUpdateSql:sql withError:&error];
-        NSAssert(!error, @"create table %@ failed",error);
+        [[MoonCacheManager shareManager].diskCache executeUpdateSql:sql withError:error];
+        NSAssert(!error, @"create table %@ failed",*error);
         info.isTableExist = YES;
         info.isCorrectedTable = YES;
     }
     return info.isTableExist;
 }
 
+#pragma mark - check table info
+
++(MoonDiskCacheTableCheckInfo *)tableCheckInfoOfclass:(Class)cls{
+    return [self getCacheInfoOfClass:cls forKey:MoonDiskCacheUtilsTableCheckInfoKey];
+}
+
++(void)cacheTableCheckInfo:(MoonDiskCacheTableCheckInfo *)info forClass:(Class)cls{
+    [self cacheInfo:info forClass:cls forKey:MoonDiskCacheUtilsTableCheckInfoKey];
+}
+
 +(void)checkTableInfoWithSqlMaker:(id<MoonSqlMakerProtocol>) sqlMaker withError:(NSError *__autoreleasing *)error{
     for (Class cls in [sqlMaker operateTablesRelatedClass]) {
-        [self isExistTableOfClass:cls andCreateIfNotExist:YES];
+        [self isExistTableOfClass:cls andCreateIfNotExist:YES andError:error];
     }
 }
 

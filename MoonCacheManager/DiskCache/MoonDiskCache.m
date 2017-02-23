@@ -48,9 +48,12 @@
 }
 
 -(void)saveWithSqlMaker:(MoonSqlSaveMaker *)maker andError:(NSError *__autoreleasing *)error{
-    [self.databaseQueue inDatabase:^(FMDatabase *db) {
-        
-    }];
+    [MoonDiskCacheUtils checkTableInfoWithSqlMaker:maker withError:error];
+    for (NSString *sql in [maker generateSqls]) {
+        [self executeUpdateSql:sql withError:error];
+        if(error)
+            break;
+    }
 }
 
 #pragma mark - execute sql

@@ -21,21 +21,15 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     StudentModel *student = [StudentModel new];
+    student.sID = @"12";
     student.name = @"Davi";
     student.age = 21;
     student.ignoreProperties = @"ignoreProperties";
     
     [MoonCacheManager saveWithSqlMaker:^(MoonSqlSaveMaker *maker) {
-        
+        maker.save(student);
     } andError:nil];
     
-    [MoonCacheManager queryWithSqlMaker:^(MoonSqlQueryMaker *maker) {
-        
-    } andError:nil];
-    
-    NSLog(@"%@",[MoonDiskCacheUtils propertiesInfoOfClass:[StudentModel class]]);
-    NSLog(@"%@",[MoonDiskCacheUtils translateObjcToDictionary:student]);
-    NSLog(@"%@",[MoonDiskCacheUtils generateCreateTableSqlForClass:[student class]]);
 }
 
 

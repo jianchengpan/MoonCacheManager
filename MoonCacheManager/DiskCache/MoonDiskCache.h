@@ -34,14 +34,19 @@
 /**
  execute query sql string,
 
- @param sql <#sql description#>
- @param error <#error description#>
- @return <#return value description#>
+ @param sql query sql
+ @param error an error object pointer
+ @return query result that is an array contain all query result,every result has been convert into a dictionary
  */
 -(NSMutableArray<NSDictionary *>*)executeQuerySql:(NSString *)sql withError:(NSError **)error;
 
+/**
+ excute update sql string
+
+ @param sql update sql
+ @param error an error object pointer
+ @return update result
+ */
 -(BOOL)executeUpdateSql:(NSString *)sql withError:(NSError **)error;
-
-
 
 @end
