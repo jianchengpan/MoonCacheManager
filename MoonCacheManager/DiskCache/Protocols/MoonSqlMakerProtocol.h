@@ -26,4 +26,8 @@
  */
 -(NSArray<Class> *)operateTablesRelatedClass;
 
+@optional
+
+-(NSMutableArray *)handleQueryResult:(NSArray<NSDictionary *> *)result;
+
 @end

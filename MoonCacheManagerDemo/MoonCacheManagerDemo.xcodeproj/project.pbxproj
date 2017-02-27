@@ -33,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A86845BA1E5ECE8400D5D507 /* MoonSqlMakerOrderType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoonSqlMakerOrderType.h; sourceTree = "<group>"; };
 		A877B8921E5587CF00CA75BC /* MoonDiskCacheUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoonDiskCacheUtils.h; sourceTree = "<group>"; };
 		A877B8931E5587CF00CA75BC /* MoonDiskCacheUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoonDiskCacheUtils.m; sourceTree = "<group>"; };
 		A877B8961E5588CF00CA75BC /* MoonDiskCachePropertyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoonDiskCachePropertyInfo.h; sourceTree = "<group>"; };
@@ -181,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				DC704C6E1E2F5B1B00DF9BDE /* MoonTableRelationType.h */,
+				A86845BA1E5ECE8400D5D507 /* MoonSqlMakerOrderType.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";

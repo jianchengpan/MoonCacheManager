@@ -41,10 +41,11 @@
 
 -(NSArray *)queryWithSqlMaker:(MoonSqlQueryMaker *)maker andError:(NSError *__autoreleasing *)error{
     [MoonDiskCacheUtils checkTableInfoWithSqlMaker:maker withError:error];
-    [self.databaseQueue inDatabase:^(FMDatabase *db) {
-        
-    }];
-    return nil;
+    NSString *sql = [[maker generateSqls] firstObject];
+    NSMutableArray *resultArray = [self executeQuerySql:sql withError:error];
+    if(resultArray.count)
+        resultArray = [maker handleQueryResult:resultArray];
+    return resultArray;
 }
 
 -(void)saveWithSqlMaker:(MoonSqlSaveMaker *)maker andError:(NSError *__autoreleasing *)error{

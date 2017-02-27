@@ -39,4 +39,12 @@
  */
 -(NSMutableDictionary *)dataMap;
 
+
+/**
+ when you use dataMap to customize save info,you may use this function to retrieve the customized info. default use  - (void)setValuesForKeysWithDictionary:(NSDictionary<NSString *, id> *)keyedValues
+
+ @param dict query result dictionary
+ */
+-(void)configWithQueryResultDictionary:(NSDictionary *)dict;
+
 @end
