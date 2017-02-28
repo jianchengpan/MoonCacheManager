@@ -11,4 +11,14 @@
 
 @interface MoonSqlDeleteMaker : NSObject<MoonSqlMakerProtocol>
 
+@property (nonatomic, strong) Class operatingClass;
+@property (nonatomic, strong) id operatingObj;
+
+@property (nonatomic, strong) NSMutableString *deleteCondition;
+
+-(MoonSqlDeleteMaker *(^)(id obj))deleteObj;
+-(MoonSqlDeleteMaker *(^)(Class cls))deleteClass;
+
+-(MoonSqlDeleteMaker *(^)(NSString *))where;
+
 @end

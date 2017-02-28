@@ -39,16 +39,25 @@
 
 #pragma mark - workWith sqlMaker
 
--(NSArray *)queryWithSqlMaker:(MoonSqlQueryMaker *)maker andError:(NSError *__autoreleasing *)error{
+-(NSArray *)queryWithSqlMaker:(id<MoonSqlMakerProtocol>)maker andError:(NSError *__autoreleasing *)error{
     [MoonDiskCacheUtils checkTableInfoWithSqlMaker:maker withError:error];
     NSString *sql = [[maker generateSqls] firstObject];
     NSMutableArray *resultArray = [self executeQuerySql:sql withError:error];
-    if(resultArray.count)
+    if(resultArray.count && [maker respondsToSelector:@selector(handleQueryResult:)])
         resultArray = [maker handleQueryResult:resultArray];
     return resultArray;
 }
 
--(void)saveWithSqlMaker:(MoonSqlSaveMaker *)maker andError:(NSError *__autoreleasing *)error{
+-(void)saveWithSqlMaker:(id<MoonSqlMakerProtocol>)maker andError:(NSError *__autoreleasing *)error{
+    [MoonDiskCacheUtils checkTableInfoWithSqlMaker:maker withError:error];
+    for (NSString *sql in [maker generateSqls]) {
+        [self executeUpdateSql:sql withError:error];
+        if(error)
+            break;
+    }
+}
+
+-(void)deleteWithSqlMaker:(id<MoonSqlMakerProtocol>)maker andError:(NSError **)error{
     [MoonDiskCacheUtils checkTableInfoWithSqlMaker:maker withError:error];
     for (NSString *sql in [maker generateSqls]) {
         [self executeUpdateSql:sql withError:error];

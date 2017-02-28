@@ -77,9 +77,9 @@
     NSMutableArray *sqls = [NSMutableArray array];
     if(self.operatingClass){
         NSMutableString *querySql = [NSMutableString stringWithFormat:@"select * from %@ ",NSStringFromClass(self.operatingClass)];
-        if(self.queryCondition.length)
+        if(_queryCondition.length)
             [querySql appendFormat:@"where %@ ",self.queryCondition];
-        if(self.orderCondition.length){
+        if(_orderCondition.length){
             [querySql appendFormat:@"order by %@ ",self.orderCondition];
         }
         

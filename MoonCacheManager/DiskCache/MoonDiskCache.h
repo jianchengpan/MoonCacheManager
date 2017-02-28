@@ -24,9 +24,11 @@
 
 #pragma mark - workWith sqlMaker
 
--(NSArray *)queryWithSqlMaker:(MoonSqlQueryMaker *)maker andError:(NSError **)error;
+-(NSArray *)queryWithSqlMaker:(id<MoonSqlMakerProtocol>)maker andError:(NSError **)error;
 
--(void)saveWithSqlMaker:(MoonSqlSaveMaker *)maker andError:(NSError **)error;
+-(void)saveWithSqlMaker:(id<MoonSqlMakerProtocol>)maker andError:(NSError **)error;
+
+-(void)deleteWithSqlMaker:(id<MoonSqlMakerProtocol>)maker andError:(NSError **)error;
 
 #pragma mark - execute sql
 

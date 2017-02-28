@@ -55,6 +55,7 @@
 +(void)deleteWithSqlMaker:(void (^)(MoonSqlDeleteMaker *))maker andError:(NSError *__autoreleasing *)error{
     MoonSqlDeleteMaker *deleteMaker = [MoonSqlDeleteMaker new];
     maker(deleteMaker);
+    return [[[self shareManager] diskCache] deleteWithSqlMaker:deleteMaker andError:error];
 }
 
 @end

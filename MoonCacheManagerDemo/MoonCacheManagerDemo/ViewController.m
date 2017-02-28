@@ -25,11 +25,13 @@
     student.name = @"Davi";
     student.age = 21;
     student.ignoreProperties = @"ignoreProperties";
-    
+//    [MoonCacheManager deleteWithSqlMaker:^(MoonSqlDeleteMaker *maker) {
+//        maker.deleteClass([StudentModel class]);
+//    } andError:nil];
     [MoonCacheManager saveWithSqlMaker:^(MoonSqlSaveMaker *maker) {
         maker.save(student);
     } andError:nil];
-    
+
     student.sID = @"18";
     student.name = @"Dfasi";
     student.age = 23;
@@ -39,7 +41,7 @@
     } andError:nil];
     
     NSArray *result = [MoonCacheManager queryWithSqlMaker:^(MoonSqlQueryMaker *maker) {
-        maker.query([StudentModel class]).orderBy(@"age",MoonSqlMakerOrderTypeDESC).limit(1,10).where([NSString stringWithFormat:@"SID = 12"]);
+        maker.query([StudentModel class]).orderBy(@"age",MoonSqlMakerOrderTypeDESC).limit(1,10);
     } andError:nil];
     NSLog(@"%@",result);
 }
