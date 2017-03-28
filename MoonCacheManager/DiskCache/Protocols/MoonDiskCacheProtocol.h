@@ -7,12 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MoonRelationModel.h"
 
 @protocol MoonDiskCacheProtocol
 
 @required
-
-
 
 /**
 
@@ -46,5 +45,13 @@
  @param dict query result dictionary
  */
 -(void)configWithQueryResultDictionary:(NSDictionary *)dict;
+
+
+/**
+ you can use this method to creat relation of classes
+
+ @return relation infos
+ */
++(NSArray<MoonRelationModel *>*)relationInfo;
 
 @end

@@ -13,8 +13,11 @@
 @property (nonatomic ,copy) NSString *propertyName;
 @property (nonatomic ,copy) NSString *encodedType;
 
-/** default is YES , just readOnly proeprties and ignore properties(define in MoonDiskCacheProtocol) is NO */
+/** default is YES , just readOnly proeprties , ignore properties(define in MoonDiskCacheProtocol) and addtionalProperty is NO */
 @property (nonatomic, assign) BOOL isValidProperties;
+
+/** the property create by system to construct relation should be addtionan property*/
+@property (nonatomic, assign) BOOL isAddtionalProperty;
 
 @property (nonatomic ,readonly) NSString *sqlType;
 

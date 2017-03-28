@@ -12,7 +12,13 @@
 @interface MoonSqlSaveMaker : MoonSqlMaker
 
 @property (nonatomic, strong) id operatingObj;
+@property (nonatomic, strong) NSDictionary *extraInfoDic;
+@property (nonatomic, strong) NSMutableArray *relationobjs;
 
 -(MoonSqlSaveMaker *(^)(id))save;
+
+-(MoonSqlSaveMaker *(^)(NSDictionary *))extraInfo;
+
+-(MoonSqlSaveMaker *(^)(id))relationObj;
 
 @end

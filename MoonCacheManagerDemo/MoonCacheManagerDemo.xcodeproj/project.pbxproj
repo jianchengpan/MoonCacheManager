@@ -15,6 +15,7 @@
 		A877B8941E5587CF00CA75BC /* MoonDiskCacheUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A877B8931E5587CF00CA75BC /* MoonDiskCacheUtils.m */; };
 		A877B8981E5588CF00CA75BC /* MoonDiskCachePropertyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A877B8971E5588CF00CA75BC /* MoonDiskCachePropertyInfo.m */; };
 		A88BE7801E52EAC80037DCE0 /* StudentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A88BE77F1E52EAC80037DCE0 /* StudentModel.m */; };
+		A894B8A81E8A39F3000FBF14 /* ClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A894B8A71E8A39F3000FBF14 /* ClassModel.m */; };
 		A8E2992A1E5E925A00758FFA /* NSDictionary+MoonSqlDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = A8E299291E5E925A00758FFA /* NSDictionary+MoonSqlDescription.m */; };
 		A8FC5C601E5C04BC00D90A51 /* MoonDiskCacheTableCheckInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FC5C5F1E5C04BC00D90A51 /* MoonDiskCacheTableCheckInfo.m */; };
 		DC12F0BC1E3072200006AF12 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = DC12F0BB1E3072200006AF12 /* libsqlite3.0.tbd */; };
@@ -53,6 +54,8 @@
 		A88BE77E1E52EAC80037DCE0 /* StudentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentModel.h; sourceTree = "<group>"; };
 		A88BE77F1E52EAC80037DCE0 /* StudentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentModel.m; sourceTree = "<group>"; };
 		A88BE7821E52FB820037DCE0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		A894B8A61E8A39F3000FBF14 /* ClassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassModel.h; sourceTree = "<group>"; };
+		A894B8A71E8A39F3000FBF14 /* ClassModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassModel.m; sourceTree = "<group>"; };
 		A8E299281E5E925A00758FFA /* NSDictionary+MoonSqlDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+MoonSqlDescription.h"; sourceTree = "<group>"; };
 		A8E299291E5E925A00758FFA /* NSDictionary+MoonSqlDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+MoonSqlDescription.m"; sourceTree = "<group>"; };
 		A8FC5C5E1E5C04BC00D90A51 /* MoonDiskCacheTableCheckInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoonDiskCacheTableCheckInfo.h; sourceTree = "<group>"; };
@@ -151,6 +154,8 @@
 			children = (
 				A88BE77E1E52EAC80037DCE0 /* StudentModel.h */,
 				A88BE77F1E52EAC80037DCE0 /* StudentModel.m */,
+				A894B8A61E8A39F3000FBF14 /* ClassModel.h */,
+				A894B8A71E8A39F3000FBF14 /* ClassModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -381,6 +386,7 @@
 				A88BE7801E52EAC80037DCE0 /* StudentModel.m in Sources */,
 				A877B8941E5587CF00CA75BC /* MoonDiskCacheUtils.m in Sources */,
 				A877B8981E5588CF00CA75BC /* MoonDiskCachePropertyInfo.m in Sources */,
+				A894B8A81E8A39F3000FBF14 /* ClassModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,4 +22,13 @@
 
 }
 
++(NSArray<MoonRelationModel *> *)relationInfo{
+    MoonRelationModel *relation1 = [MoonRelationModel new];
+    relation1.relationClass = [self class];
+    relation1.relationType = MoonTableRelationTypeBelongsTo;
+    relation1.foreignRelationClass = NSClassFromString(@"ClassModel");
+    
+    return @[relation1];
+}
+
 @end

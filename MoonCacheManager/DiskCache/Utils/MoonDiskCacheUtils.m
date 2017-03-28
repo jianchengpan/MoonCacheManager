@@ -192,7 +192,7 @@
     }
     
     for (MoonDiskCachePropertyInfo *info in [self propertiesInfoOfClass:cls]) {
-        if(![allPropertyKeyInDisk objectForKey:info.propertyName] && info.isValidProperties){
+        if(![allPropertyKeyInDisk objectForKey:info.propertyName] && (info.isValidProperties || info.isAddtionalProperty)){
             NSString *correctSql = [NSString stringWithFormat:@"alter table %@ add column %@ %@",NSStringFromClass(cls),info.propertyName,info.sqlType];
             [[MoonCacheManager shareManager].diskCache executeUpdateSql:correctSql withError:&error];
             if(error)
@@ -234,11 +234,59 @@
 }
 
 +(void)checkTableInfoWithSqlMaker:(id<MoonSqlMakerProtocol>) sqlMaker withError:(NSError *__autoreleasing *)error{
-    for (Class cls in [sqlMaker operateTablesRelatedClass]) {
+    for (Class cls in [sqlMaker operateTablesRelatedClass])
         [self isExistTableOfClass:cls andCreateIfNotExist:YES andError:error];
-    }
+    for (Class cls in [sqlMaker operateTablesRelatedClass])
+        [self checkTableRelationOfClass:cls];
 }
 
-
+#pragma mark - check table relation
++(void)checkTableRelationOfClass:(Class)cls{
+    MoonDiskCacheTableCheckInfo *info = [self tableCheckInfoOfclass:cls];
+    if(!info){
+        info = [MoonDiskCacheTableCheckInfo new];
+        info.isTableExist = [self existTableInDisk:NSStringFromClass(cls)];
+        if(info.isTableExist)
+            info.isCorrectedTable = [self correctTableOfClass:cls];
+        [self cacheTableCheckInfo:info forClass:cls];
+    }
+    if(!info.isCheckRelationInfo){
+        if([cls respondsToSelector:@selector(relationInfo)]){
+            NSArray *relations = [cls relationInfo];
+            for (MoonRelationModel *relation in relations) {
+                switch (relation.relationType) {
+                    case MoonTableRelationTypeHasOne:
+                    case MoonTableRelationTypeHasMany:{
+                        objc_property_t property = class_getProperty(relation.foreignRelationClass, [relation.relationKey UTF8String]);
+                        if(!property){
+                            MoonDiskCachePropertyInfo *tempProperty = [[MoonDiskCachePropertyInfo alloc] initWithName:relation.relationKey andEncodedType:@"@NSString"];
+                            [[self propertiesInfoOfClass:relation.foreignRelationClass] addObject:tempProperty];
+                            [self correctTableOfClass:relation.foreignRelationClass];
+                        }
+                        break;
+                    }
+                    case MoonTableRelationTypeBelongsTo:{
+                        objc_property_t property = class_getProperty(relation.relationClass, [relation.foreignRelationKey UTF8String]);
+                        if(!property){
+                            MoonDiskCachePropertyInfo *tempProperty = [[MoonDiskCachePropertyInfo alloc] initWithName:relation.foreignRelationKey andEncodedType:@"@NSString"];
+                            tempProperty.isValidProperties = NO;
+                            tempProperty.isAddtionalProperty = YES;
+                            [[self propertiesInfoOfClass:relation.relationClass] addObject:tempProperty];
+                            [self correctTableOfClass:relation.relationClass];
+                        }
+                        break;
+                    }
+                    case MoonTableRelationTypeManyToMany:{
+                        
+                        break;
+                    }
+                    default:
+                        break;
+                }
+            }
+        }
+        info.isCheckRelationInfo = YES;
+    }
+}
 
 @end

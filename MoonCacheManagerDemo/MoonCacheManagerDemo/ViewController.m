@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 #import "StudentModel.h"
+#import "ClassModel.h"
 
 @interface ViewController ()
 
@@ -25,6 +26,7 @@
     student.name = @"Davi";
     student.age = 21;
     student.ignoreProperties = @"ignoreProperties";
+
 //    [MoonCacheManager deleteWithSqlMaker:^(MoonSqlDeleteMaker *maker) {
 //        maker.deleteClass([StudentModel class]);
 //    } andError:nil];
@@ -43,6 +45,15 @@
     NSArray *result = [MoonCacheManager queryWithSqlMaker:^(MoonSqlQueryMaker *maker) {
         maker.query([StudentModel class]).orderBy(@"age",MoonSqlMakerOrderTypeDESC).limit(1,10);
     } andError:nil];
+    
+    ClassModel *classModel = [ClassModel new];
+    classModel.CId = @"qwer";
+    classModel.CName = @"test class";
+    
+    [MoonCacheManager saveWithSqlMaker:^(MoonSqlSaveMaker *maker) {
+        maker.save(classModel).with.relationObj(student);
+    } andError:nil];
+    
     NSLog(@"%@",result);
 }
 

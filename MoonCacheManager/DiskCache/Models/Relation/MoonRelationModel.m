@@ -10,4 +10,19 @@
 
 @implementation MoonRelationModel
 
+-(NSString *)relationKey{
+    if(!_relationKey){
+        _relationKey = [NSString stringWithFormat:@"%@_%@",NSStringFromClass(self.relationClass),[self.relationClass indexKey]];
+    }
+    return _relationKey;
+}
+
+-(NSString *)foreignRelationKey{
+    if(!_foreignRelationKey){
+        _foreignRelationKey = [NSString stringWithFormat:@"%@_%@",NSStringFromClass(self.foreignRelationClass),[self.foreignRelationClass indexKey]];
+    }
+    return _foreignRelationKey;
+}
+
 @end
+

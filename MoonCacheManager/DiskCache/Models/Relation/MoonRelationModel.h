@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MoonTableRelationType.h"
 
+#import "MoonDiskCacheProtocol.h"
 
 /**
  if key not exist in disk,it will be create.if key is null,it may be generated automatically user format 'Class_Index'

@@ -10,7 +10,6 @@
 #import "NSDictionary+MoonSqlDescription.h"
 
 @implementation MoonSqlSaveMaker
-
 #pragma mark - sqlMaker protocol
 
 -(NSArray<NSString *> *)generateSqls{
@@ -26,6 +25,7 @@
             NSLog(@"indexKey \"%@\" cann't be nil",indexKey);
             goto end;
         }
+        [dataDic addEntriesFromDictionary:self.extraInfoDic];
         
         NSMutableString *insertSql = [NSMutableString stringWithFormat:@"insert or ignore into %@ %@",tableName,dataDic.insertDescription];
         [sqls addObject:insertSql];
@@ -42,8 +42,19 @@ end:
     
     if(self.operatingObj)
         [classesArray addObject:[self.operatingObj class]];
+    for (id obj in _relationobjs) {
+        [classesArray addObject:[obj class]];
+    }
     
     return classesArray;
+}
+
+#pragma mark - properties
+-(NSMutableArray *)relationobjs{
+    if(!_relationobjs){
+        _relationobjs = [NSMutableArray array];
+    }
+    return _relationobjs;
 }
 
 #pragma mark - operation
@@ -51,6 +62,20 @@ end:
 -(MoonSqlSaveMaker *(^)(id))save{
     return ^id(id obj){
         self.operatingObj = obj;
+        return self;
+    };
+}
+
+-(MoonSqlSaveMaker *(^)(NSDictionary *))extraInfo{
+    return ^id(NSDictionary *extraInfo){
+        self.extraInfoDic = extraInfo;
+        return self;
+    };
+}
+
+-(MoonSqlSaveMaker *(^)(id))relationObj{
+    return ^id(id obj){
+        [self.relationobjs addObject:obj];
         return self;
     };
 }
