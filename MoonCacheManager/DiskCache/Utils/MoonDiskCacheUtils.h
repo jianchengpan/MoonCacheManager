@@ -54,4 +54,14 @@
  */
 +(void)checkTableInfoWithSqlMaker:(id<MoonSqlMakerProtocol>) sqlMaker withError:(NSError *__autoreleasing *)error;
 
+
+/**
+ when reation of two class is ManyToMany , you can use this method to get relation table name
+
+ @param clsName1 one class define in relation
+ @param clsName2 one class define in relation
+ @return relation table name
+ */
++(NSString *)relationClassNameWithClassName:(NSString *)clsName1 andClassName:(NSString *)clsName2;
+
 @end
