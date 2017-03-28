@@ -11,6 +11,7 @@
 		A860DBF31E89F6FB00783264 /* MoonSqlQueryMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = A860DBEF1E89F6FB00783264 /* MoonSqlQueryMaker.m */; };
 		A860DBF41E89F6FB00783264 /* MoonSqlSaveMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = A860DBF11E89F6FB00783264 /* MoonSqlSaveMaker.m */; };
 		A860DBF71E89F72200783264 /* MoonSqlMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = A860DBF61E89F72200783264 /* MoonSqlMaker.m */; };
+		A860DBFB1E89FB4500783264 /* MoonRelationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A860DBFA1E89FB4500783264 /* MoonRelationModel.m */; };
 		A877B8941E5587CF00CA75BC /* MoonDiskCacheUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A877B8931E5587CF00CA75BC /* MoonDiskCacheUtils.m */; };
 		A877B8981E5588CF00CA75BC /* MoonDiskCachePropertyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A877B8971E5588CF00CA75BC /* MoonDiskCachePropertyInfo.m */; };
 		A88BE7801E52EAC80037DCE0 /* StudentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A88BE77F1E52EAC80037DCE0 /* StudentModel.m */; };
@@ -42,6 +43,8 @@
 		A860DBF11E89F6FB00783264 /* MoonSqlSaveMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoonSqlSaveMaker.m; sourceTree = "<group>"; };
 		A860DBF51E89F72200783264 /* MoonSqlMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoonSqlMaker.h; sourceTree = "<group>"; };
 		A860DBF61E89F72200783264 /* MoonSqlMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoonSqlMaker.m; sourceTree = "<group>"; };
+		A860DBF91E89FB4500783264 /* MoonRelationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoonRelationModel.h; sourceTree = "<group>"; };
+		A860DBFA1E89FB4500783264 /* MoonRelationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoonRelationModel.m; sourceTree = "<group>"; };
 		A86845BA1E5ECE8400D5D507 /* MoonSqlMakerOrderType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoonSqlMakerOrderType.h; sourceTree = "<group>"; };
 		A877B8921E5587CF00CA75BC /* MoonDiskCacheUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoonDiskCacheUtils.h; sourceTree = "<group>"; };
 		A877B8931E5587CF00CA75BC /* MoonDiskCacheUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoonDiskCacheUtils.m; sourceTree = "<group>"; };
@@ -111,6 +114,15 @@
 				A860DBF11E89F6FB00783264 /* MoonSqlSaveMaker.m */,
 			);
 			path = SqlMakers;
+			sourceTree = "<group>";
+		};
+		A860DBF81E89FB0E00783264 /* Relation */ = {
+			isa = PBXGroup;
+			children = (
+				A860DBF91E89FB4500783264 /* MoonRelationModel.h */,
+				A860DBFA1E89FB4500783264 /* MoonRelationModel.m */,
+			);
+			path = Relation;
 			sourceTree = "<group>";
 		};
 		A877B8911E5587C000CA75BC /* Utils */ = {
@@ -187,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				A860DBEB1E89F6D300783264 /* SqlMakers */,
+				A860DBF81E89FB0E00783264 /* Relation */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -362,6 +375,7 @@
 				DCF0676A1E2F202D0019BCAB /* AppDelegate.m in Sources */,
 				DCF067671E2F202D0019BCAB /* main.m in Sources */,
 				DC704C5B1E2F4CA200DF9BDE /* MoonDiskCache.m in Sources */,
+				A860DBFB1E89FB4500783264 /* MoonRelationModel.m in Sources */,
 				A860DBF21E89F6FB00783264 /* MoonSqlDeleteMaker.m in Sources */,
 				DC704C7D1E2F5D1800DF9BDE /* FMDatabaseAdditions.m in Sources */,
 				A88BE7801E52EAC80037DCE0 /* StudentModel.m in Sources */,
