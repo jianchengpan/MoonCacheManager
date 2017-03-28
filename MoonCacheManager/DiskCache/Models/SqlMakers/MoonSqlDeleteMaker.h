@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MoonSqlMakerProtocol.h"
+#import "MoonSqlMaker.h"
 
-@interface MoonSqlDeleteMaker : NSObject<MoonSqlMakerProtocol>
+@interface MoonSqlDeleteMaker : MoonSqlMaker
 
 @property (nonatomic, strong) Class operatingClass;
 @property (nonatomic, strong) id operatingObj;

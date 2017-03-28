@@ -14,6 +14,7 @@ typedef NS_ENUM(NSUInteger, MoonTableRelationType) {
     MoonTableRelationTypeHasOne     = 1,
     MoonTableRelationTypeHasMany    = 2,
     MoonTableRelationTypeBelongsTo  = 3,
+    MoonTableRelationTypeManyToMany = 4,
 };
 
 #endif /* MoonTableRelationType_h */

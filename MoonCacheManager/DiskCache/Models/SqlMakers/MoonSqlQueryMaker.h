@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MoonSqlMakerProtocol.h"
+#import "MoonSqlMaker.h"
 #import "MoonSqlMakerOrderType.h"
 
-@interface MoonSqlQueryMaker : NSObject<MoonSqlMakerProtocol>
+@interface MoonSqlQueryMaker : MoonSqlMaker
 
 @property (nonatomic, strong) Class operatingClass;
 
