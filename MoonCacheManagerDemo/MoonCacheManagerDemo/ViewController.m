@@ -10,6 +10,7 @@
 
 #import "StudentModel.h"
 #import "ClassModel.h"
+#import "ClubModel.h"
 
 @interface ViewController ()
 
@@ -52,6 +53,14 @@
     
     [MoonCacheManager saveWithSqlMaker:^(MoonSqlSaveMaker *maker) {
         maker.save(classModel).with.relationObj(student);
+    } andError:nil];
+    
+    ClubModel *club = [ClubModel new];
+    club.clubId = @"qazxc";
+    club.clubName = @"test club";
+    
+    [MoonCacheManager saveWithSqlMaker:^(MoonSqlSaveMaker *maker) {
+        maker.save(club).with.relationObj(student);
     } andError:nil];
     
     NSLog(@"%@",result);

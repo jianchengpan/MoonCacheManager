@@ -145,7 +145,7 @@
     for (MoonDiskCachePropertyInfo *propertyInfo in [self propertiesInfoOfClass:cls]) {
         if(!propertyInfo.isValidProperties)
             continue;
-        if([[cls indexKey] isEqualToString:propertyInfo.propertyName])
+        if([cls respondsToSelector:@selector(indexKey)] && [[cls indexKey] isEqualToString:propertyInfo.propertyName])
             [createTableSql appendFormat:@" %@ %@ unique,",propertyInfo.propertyName,propertyInfo.sqlType];
         else
             [createTableSql appendFormat:@" %@ %@,",propertyInfo.propertyName,propertyInfo.sqlType];
@@ -241,6 +241,12 @@
 }
 
 #pragma mark - check table relation
+
++(NSString *)relationClassNameWithClassName:(NSString *)clsName1 andClassName:(NSString *)clsName2{
+    NSComparisonResult result = [clsName1 compare:clsName2];
+    return result==NSOrderedAscending ? [NSString stringWithFormat:@"Relation_%@_%@",clsName1,clsName2] : [NSString stringWithFormat:@"Relation_%@_%@",clsName2,clsName1];
+}
+
 +(void)checkTableRelationOfClass:(Class)cls{
     MoonDiskCacheTableCheckInfo *info = [self tableCheckInfoOfclass:cls];
     if(!info){
@@ -277,7 +283,22 @@
                         break;
                     }
                     case MoonTableRelationTypeManyToMany:{
-                        
+                        NSString *relationClassName = [self relationClassNameWithClassName:NSStringFromClass(relation.relationClass) andClassName:NSStringFromClass(relation.foreignRelationClass)];
+                        Class relationClass = NSClassFromString(relationClassName);
+                        if(!relationClass){
+                            relationClass = objc_allocateClassPair([NSObject class], [relationClassName UTF8String], 0);
+                            
+                            objc_property_attribute_t encodeType = {"T","@\"NSString\""};
+                            objc_property_attribute_t propertyType1 = {"C",""};
+                            objc_property_attribute_t propertyType2 = {"N",""};
+                            objc_property_attribute_t attibutes[] = {encodeType,propertyType1,propertyType2};
+                            
+                            class_addProperty(relationClass, [relation.relationKey UTF8String], attibutes, 3);
+                            class_addProperty(relationClass, [relation.foreignRelationKey UTF8String], attibutes, 3);
+                            
+                            objc_registerClassPair(relationClass);                            
+                        }
+                        [self isExistTableOfClass:relationClass andCreateIfNotExist:YES andError:nil];
                         break;
                     }
                     default:
